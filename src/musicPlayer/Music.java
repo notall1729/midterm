@@ -16,7 +16,7 @@ public class Music {
     }
 
     public void play(){
-        System.out.println("Music: " + title + " by " + singer.getUsername() + "is playing...\n\n");
+        System.out.println("Music: " + title + " by " + singer.getUsername() + " is playing...\n\n");
         numberOfStream ++;
     }
 
