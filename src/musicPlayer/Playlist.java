@@ -65,7 +65,7 @@ public class Playlist {
     private ArrayList<Music> searchInPlaylist(String musicName){
         ArrayList<Music> result = new ArrayList<>();
         for (int i = 0; i < playlist.size(); ++i){
-            if(playlist.get(i).GetTitle.equals(musicName))
+            if(playlist.get(i).getTitle().equals(musicName))
                 result.add(playlist.get(i));
         }
         if(result.size() == 0) {
@@ -77,7 +77,7 @@ public class Playlist {
     private Music searchInPlaylist(String musicName, String singerName){
         for (int i = 0; i < playlist.size(); ++i){
             Music music = playlist.get(i);
-            if(music.getTitle.equals(musicName) && music.getSinger.equals(singerName)){
+            if(music.getTitle().equals(musicName) && music.getSinger().equals(singerName)){
                 return music;
             }
         }
