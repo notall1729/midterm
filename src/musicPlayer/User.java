@@ -25,8 +25,8 @@ public class User {
         else{
             throw new InvalidOperationException("Password at least must have 8 characters long.");
         }
-
-        this.behavior = RegularBehavior;
+         RegularBehavior regularBehavior = new RegularBehavior();
+        this.behavior = regularBehavior;
     }
 
     private void follow(User user){
