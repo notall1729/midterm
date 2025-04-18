@@ -8,11 +8,11 @@ public class PremiumBehavior implements UserBehavior{
     }
 
     private void createPlaylist (String Title, User Owner){
-        Playlist newPlayList = new PlayList();
+        Playlist newPlayList = new Playlist(Title, Owner);
         Owner.playlists.add(newPlayList);
     }
 
-    public void playMusic (Music music){
+    private void playMusic (Music music){
         music.play();
     }
 
