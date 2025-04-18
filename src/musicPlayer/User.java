@@ -5,34 +5,35 @@ import java.util.ArrayList;
 public class User {
     private String username;
     private String password;
-    public ArrayList<User> followerList = new ArrayList<>();
-    public ArrayList<User> followingList = new ArrayList<>();
-    public UserBehavior behavior;
-    public ArrayList<Playlist> playlists = new ArrayList<>();
+    private ArrayList<User> followerList = new ArrayList<>();
+    private ArrayList<User> followingList = new ArrayList<>();
+    private UserBehavior behavior;
+    private ArrayList<Playlist> playlists = new ArrayList<>();
     private static ArrayList<User> allUsers = new ArrayList<>();
 
     public User(String username, String password) {
-        if(!(allUsers.contains(username))) {
-            this.username = username;
-        }
-        else {
+        if(allUsers.contains(username)) {
             throw new InvalidOperationException("This username is already exist.");
         }
 
-        if(password.length() >= 8) {
-            this.password = password;
-        }
-        else{
+        if(password.length() < 8) {
             throw new InvalidOperationException("Password at least must have 8 characters long.");
         }
-         RegularBehavior regularBehavior = new RegularBehavior();
-        this.behavior = regularBehavior;
+        this.username = username;
+        this.password = password;
+        this.behavior = new RegularBehavior();
+        allUsers.add(this);
     }
 
     private void follow(User user){
-        if(followingList.contains(user))
+        if(followingList.contains(user)) {
             throw new InvalidOperationException("You are already following this user.");
+        }
 
+        if(user == this){
+            throw new InvalidOperationException("Sorry you cannot follow yourself :)");
+        }
+        user.followerList.add(this);
         followingList.add(user);
     }
 
@@ -54,5 +55,13 @@ public class User {
 
     public String getPassword() {
         return password;
+    }
+
+    public void setBehavior(UserBehavior behavior) {
+        this.behavior = behavior;
+    }
+
+    public ArrayList<Playlist> getPlaylists() {
+        return playlists;
     }
 }

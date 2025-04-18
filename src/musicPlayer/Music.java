@@ -12,10 +12,11 @@ public class Music {
         this.title = title;
         this.singer = singer;
         this.numberOfStream = 0;
+        allMusics.add(this);
     }
 
     public void play(){
-        System.out.println("Music: " + title + " by " + singer + "is playing...\n\n");
+        System.out.println("Music: " + title + " by " + singer.getUsername() + "is playing...\n\n");
         numberOfStream ++;
     }
 
