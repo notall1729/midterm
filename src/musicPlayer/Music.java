@@ -20,7 +20,7 @@ public class Music {
         numberOfStream ++;
     }
 
-    private ArrayList<Music> search(String musicName){
+    public ArrayList<Music> search(String musicName){
         ArrayList<Music> result = new ArrayList<>();
       for (int i = 0; i < allMusics.size(); ++i){
           if(allMusics.get(i).title.equals(musicName))
@@ -32,7 +32,7 @@ public class Music {
       return result;
     }
 
-    private Music search(String musicName, String singerName){
+    public Music search(String musicName, String singerName){
         for (int i = 0; i < allMusics.size(); ++i){
             Music music = allMusics.get(i);
             if(music.title.equals(musicName) && music.singer.equals(singerName)){

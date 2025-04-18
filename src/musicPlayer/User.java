@@ -25,7 +25,7 @@ public class User {
         allUsers.add(this);
     }
 
-    private void follow(User user){
+    public void follow(User user){
         if(followingList.contains(user)) {
             throw new InvalidOperationException("You are already following this user.");
         }
@@ -37,15 +37,15 @@ public class User {
         followingList.add(user);
     }
 
-    private void createPlaylist(String Title, User Owner){
+    public void createPlaylist(String Title, User Owner){
         this.behavior.createPlaylist(Title, Owner);
     }
 
-    private void playMusic(Music music){
+    public void playMusic(Music music){
         this.behavior.playMusic(music);
     }
 
-    private void buyPremium(User owner, int month){
+    public void buyPremium(User owner, int month){
         this.behavior.buyPremium(owner, month);
     }
 
@@ -63,5 +63,9 @@ public class User {
 
     public ArrayList<Playlist> getPlaylists() {
         return playlists;
+    }
+
+    public UserBehavior getBehavior() {
+        return behavior;
     }
 }

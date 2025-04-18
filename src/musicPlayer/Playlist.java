@@ -13,7 +13,7 @@ public class Playlist {
         this.owner = owner;
     }
 
-    private void editTitle(String newTitle, User user){
+    public void editTitle(String newTitle, User user){
         if(user.getUsername().equals(owner.getUsername()) && user.getPassword().equals(owner.getUsername())) {
             if (newTitle.equals(title)) {
                 throw new InvalidOperationException("The playlist title is the same right now.");
@@ -29,7 +29,7 @@ public class Playlist {
         }
     }
 
-    private void addMusic(Music music, User user){
+    public void addMusic(Music music, User user){
         if(user.getUsername().equals(owner.getUsername()) && user.getPassword().equals(owner.getUsername())) {
             if (playlist.contains(music)) {
                 throw new InvalidOperationException("This song is already exists.");
@@ -45,7 +45,7 @@ public class Playlist {
         }
     }
 
-    private void removeMusic(Music music, User user){
+    public void removeMusic(Music music, User user){
         if(user.getUsername().equals(owner.getUsername()) && user.getPassword().equals(owner.getUsername())) {
             if (!(playlist.contains(music))) {
                 throw new InvalidOperationException("This song is not in your playlist.");
@@ -61,7 +61,7 @@ public class Playlist {
         }
     }
 
-    private ArrayList<Music> searchInPlaylist(String musicName){
+    public ArrayList<Music> searchInPlaylist(String musicName){
         ArrayList<Music> result = new ArrayList<>();
         for (int i = 0; i < playlist.size(); ++i){
             if(playlist.get(i).getTitle().equals(musicName))
@@ -73,7 +73,7 @@ public class Playlist {
         return result;
     }
 
-    private Music searchInPlaylist(String musicName, String singerName){
+    public Music searchInPlaylist(String musicName, String singerName){
         for (int i = 0; i < playlist.size(); ++i){
             Music music = playlist.get(i);
             if(music.getTitle().equals(musicName) && music.getSinger().equals(singerName)){
@@ -83,13 +83,13 @@ public class Playlist {
         return null;
     }
 
-    private void playPlaylist(){
+    public void playPlaylist(){
         for(int i = 0; i < playlist.size(); ++i){
             playlist.get(i).play();
         }
     }
 
-    private void shuffle(){
+    public void shuffle(){
         for (int i = 0; i < playlist.size(); ++i){
             Random random = new Random();
             int rand = random.nextInt(playlist.size());
