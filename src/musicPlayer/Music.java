@@ -14,7 +14,7 @@ public class Music {
         this.numberOfStream = 0;
     }
 
-    private void play(){
+    public void play(){
         System.out.println("Music: " + title + " by " + singer + "is playing...\n\n");
         numberOfStream ++;
     }

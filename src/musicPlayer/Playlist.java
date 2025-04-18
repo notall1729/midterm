@@ -15,7 +15,7 @@ public class Playlist {
     }
 
     private void editTitle(String newTitle, User user){
-        if(user.getUsername().equals(owner.getUsername()) && user.getPassword().equals(owner.getUsername)) {
+        if(user.getUsername().equals(owner.getUsername()) && user.getPassword().equals(owner.getUsername())) {
             if (newTitle.equals(title)) {
                 throw new InvalidOperationException("The playlist title is the same right now.");
             }
@@ -31,7 +31,7 @@ public class Playlist {
     }
 
     private void addMusic(Music music, User user){
-        if(user.getUsername().equals(owner.getUsername()) && user.getPassword().equals(owner.getUsername)) {
+        if(user.getUsername().equals(owner.getUsername()) && user.getPassword().equals(owner.getUsername())) {
             if (playlist.contains(music)) {
                 throw new InvalidOperationException("This song is already exists.");
             }
@@ -47,7 +47,7 @@ public class Playlist {
     }
 
     private void removeMusic(Music music, User user){
-        if(user.getUsername().equals(owner.getUsername()) && user.getPassword().equals(owner.getUsername)) {
+        if(user.getUsername().equals(owner.getUsername()) && user.getPassword().equals(owner.getUsername())) {
             if (!(playlist.contains(music))) {
                 throw new InvalidOperationException("This song is not in your playlist.");
             }

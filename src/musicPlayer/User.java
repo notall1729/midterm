@@ -47,4 +47,12 @@ public class User {
     private void buyPremium(User owner, int month){
         this.behavior.buyPremium(owner, month);
     }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
 }

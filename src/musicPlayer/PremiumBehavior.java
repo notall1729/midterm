@@ -7,16 +7,16 @@ public class PremiumBehavior implements UserBehavior{
        this.month = month;
     }
 
-    private void createPlaylist (String Title, User Owner){
+    public void createPlaylist (String Title, User Owner){
         Playlist newPlayList = new Playlist(Title, Owner);
         Owner.playlists.add(newPlayList);
     }
 
-    private void playMusic (Music music){
+    public void playMusic (Music music){
         music.play();
     }
 
-    private void buyPremium (User owner, int month){
+    public void buyPremium (User owner, int month){
      this.month += month;
     }
 }
