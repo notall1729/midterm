@@ -9,7 +9,7 @@ public class User {
     private ArrayList<User> followingList = new ArrayList<>();
     private UserBehavior behavior;
     private ArrayList<Playlist> playlists = new ArrayList<>();
-    private static ArrayList<User> allUsers = new ArrayList<>();
+    public static ArrayList<User> allUsers = new ArrayList<>();
 
     public User(String username, String password) {
         if(allUsers.contains(username)) {
@@ -37,8 +37,9 @@ public class User {
         followingList.add(user);
     }
 
-    public void createPlaylist(String Title, User Owner){
-        this.behavior.createPlaylist(Title, Owner);
+    public void createPlaylist(String Title){
+        this.behavior.createPlaylist(Title);
+        this.playlists.add(new Playlist(Title, this));
     }
 
     public void playMusic(Music music){
@@ -80,5 +81,13 @@ public class User {
         User user = (User) obj;
         return username.equals(user.username);
 
+    }
+
+    public void removeUser(User user){
+        if(!(allUsers.contains(user))){
+            throw new InvalidOperationException("This user dose not exist.");
+        }
+
+        allUsers.remove(user);
     }
 }

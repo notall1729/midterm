@@ -4,7 +4,7 @@ public class RegularBehavior implements UserBehavior{
     private int playingLimit = 5;
 
     @Override
-    public void createPlaylist (String Title, User Owner){
+    public void createPlaylist (String Title){
       throw new InvalidOperationException("You are a regular user. regular users cannot create a playlist.");
     }
 

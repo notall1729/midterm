@@ -3,8 +3,6 @@ import musicPlayer.Music;
 import musicPlayer.Playlist;
 import musicPlayer.User;
 
-import java.util.ArrayList;
-
 public class Main {
     public static void main(String[] args) {
         try {
