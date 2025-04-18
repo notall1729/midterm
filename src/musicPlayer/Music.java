@@ -40,4 +40,12 @@ public class Music {
         }
         return null;
     }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public User getSinger() {
+        return singer;
+    }
 }
