@@ -3,7 +3,7 @@ package musicPlayer;
 public class RegularBehavior implements UserBehavior{
     private int playingLimit;
 
-    public RegularBehavior{
+    public RegularBehavior(){
         this.playingLimit = 5;
     }
 
@@ -22,7 +22,8 @@ public class RegularBehavior implements UserBehavior{
 
     }
 
-     private void buyPremium (User owner, int month){
-        owner.behavior = (premiumBehavior) owner.behavior;
+     public void buyPremium (User owner, int month){
+        PremiumBehavior premiumBehavior = new PremiumBehavior(month);
+        premiumBehavior = (PremiumBehavior) owner.behavior;
     }
 }
